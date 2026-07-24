@@ -1,0 +1,4 @@
+export const roles = ['administrateur','responsable_cdc','responsable_formation','responsable_dr','formateur_animateur','formateur_participant'];
+export const roleLabels = { administrateur:'Administrateur', responsable_cdc:'Responsable CDC', responsable_formation:'Responsable formation', responsable_dr:'Responsable DR', formateur_animateur:'Formateur animateur', formateur_participant:'Formateur participant' };
+export const dashboardForRole = (role) => ({ administrateur:'/admin/dashboard', responsable_cdc:'/cdc/dashboard', responsable_formation:'/responsable-formation/dashboard', responsable_dr:'/dr/dashboard', formateur_animateur:'/animateur/dashboard', formateur_participant:'/participant/dashboard' }[role] || '/login');
+export const mustChangePassword = (user) => !!user?.must_change_password || user?.statut === 'en_attente_activation' || user?.actif === false;

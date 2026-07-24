@@ -1,0 +1,5 @@
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
+import { useAuth } from './AuthContext';
+import { dashboardForRole, mustChangePassword } from '../utils/roles';
+export function ProtectedRoute({ roles }) { const { user, loading }=useAuth(); const location=useLocation(); if(loading) return <div className="min-h-screen grid place-items-center text-[#08235a]">Chargement...</div>; if(!user) return <Navigate to="/login" replace state={{from:location.pathname}}/>; if(mustChangePassword(user) && location.pathname!=='/activation') return <Navigate to="/activation" replace/>; if(roles && !roles.includes(user.role)) return <Navigate to="/unauthorized" replace/>; return <Outlet/>; }
+export function ChangePasswordOnly(){ const {user,loading}=useAuth(); if(loading) return <div className="min-h-screen grid place-items-center">Chargement...</div>; if(!user) return <Navigate to="/login" replace/>; if(!mustChangePassword(user)) return <Navigate to={dashboardForRole(user.role)} replace/>; return <Outlet/>; }
