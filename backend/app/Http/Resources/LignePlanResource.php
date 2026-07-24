@@ -1,0 +1,5 @@
+<?php
+namespace App\Http\Resources;
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+class LignePlanResource extends JsonResource { public function toArray(Request $request): array { return ['id'=>$this->id,'plan_formation_id'=>$this->plan_formation_id,'formation_id'=>$this->formation_id,'formation'=>$this->whenLoaded('formation', fn()=>new FormationResource($this->formation)),'besoin_formation_id'=>$this->besoin_formation_id,'priorite'=>$this->priorite,'public_cible'=>$this->public_cible,'nombre_formateurs'=>$this->nombre_formateurs,'duree_proposee'=>$this->duree_proposee,'periode_souhaitee'=>$this->periode_souhaitee,'remarque'=>$this->remarque,'hebergement_necessaire'=>(bool)$this->hebergement_necessaire,'nombre_hors_ville'=>$this->nombre_hors_ville,'ville_proposee'=>$this->ville_proposee,'remarque_logistique'=>$this->remarque_logistique]; } }
