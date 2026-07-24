@@ -13,5 +13,5 @@ _Le Formateur Participant : Après l'activation sécurisée de son compte, il pe
 
 _Le Directeur Régional (DR) : Il dispose d'une vue macroscopique avec un tableau de bord (Dashboard) lui permettant de         consulter les statistiques régionales, le suivi des plans, les sessions, les participants et les taux d'absence.
 
-##Fonctionnalité transversale : 
+## Fonctionnalité transversale : 
 Tous les acteurs authentifiés ont la possibilité de gérer leur compte (modification de profil, changement d'email sécurisé).
